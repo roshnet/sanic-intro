@@ -1,6 +1,6 @@
 from sanic import Sanic, response
 from sanic.response import stream
-from utils import streamer
+from app.utils import streamer
 
 
 app = Sanic(__name__)
