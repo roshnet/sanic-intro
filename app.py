@@ -1,4 +1,7 @@
 from sanic import Sanic, response
+from sanic.response import stream
+from utils import streamer
+
 
 app = Sanic(__name__)
 
@@ -8,6 +11,11 @@ async def index(request):
     return response.json({
         "status": "ok"
     })
+
+
+@app.route("/stream")
+async def stream_data(request):
+    return stream(streamer, content_type='text/csv')
 
 
 @app.route('/html')
